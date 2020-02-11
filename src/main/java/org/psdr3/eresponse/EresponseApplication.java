@@ -8,6 +8,7 @@ public class EresponseApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EresponseApplication.class, args);
+		System.out.println("We did it!");
 	}
 
 }
