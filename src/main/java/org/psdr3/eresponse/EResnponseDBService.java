@@ -7,6 +7,6 @@ package org.psdr3.eresponse;
  */
 public class EResnponseDBService {
 	public static void main (String[] args) {
-		System.out.println("works");
+		System.out.println("arf");
 	}
 }
