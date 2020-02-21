@@ -26,7 +26,7 @@ public class EResponseDBService {
 		//checking means putting in current event id, the student id, and the time 
 		try(Connection connection = DriverManager.getConnection(CONNECTION_STRING, "postgres", "2LearnLinux!" )){ 
 			
-			String create = "INSET INTO check_ins (event_id, student_id) " + "VALUES (?,?)";
+			String create = "INSERT INTO check_ins (event_id, student_id) " + "VALUES (?,?)";
 			 
 			PreparedStatement statement = connection.prepareStatement(create);  
 			statement.setInt(1, event_id);
