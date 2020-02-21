@@ -1,8 +1,8 @@
 package org.psdr3.eresponse;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /* This is similar to the videos but with GetMapping(events)
@@ -14,23 +14,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
+@CrossOrigin
+
 
 public class EResponseController {
+
 	
-	@GetMapping("/student")
-	public Student student() {
-		return new Student(1,"12345");
+	
+	
+
+	@PostMapping(value="/events/{event_id}/{student_id}",consumes="application/json")
+	
+	public boolean createCheckin(@PathVariable("event_id") int eventId, @PathVariable("student_id") String studentId) {
+		return EResponseDBService.createCheckin(eventId, studentId);
 	}
-	
-	
-	
-	
-	
-//	@PostMapping(value="/events/{event_id}/{student_id",consumes="application/json")
-//	
-//	public Student createCheckin(@RequestBody  int event_id, String student_id) {
-//		return EResponseDBService.createCheckin(event_id,student_id);
-//	}
 	
 	
 	

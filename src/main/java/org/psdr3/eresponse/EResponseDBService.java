@@ -22,26 +22,26 @@ public class EResponseDBService {
 	
 	
 	
-//	public static Student createCheckin(int event_id, String student_id) {
-//		//checking means putting in current event id, the student id, and the time 
-//		try(Connection connection = DriverManager.getConnection(CONNECTION_STRING)){ 
-//			
-//			String create = "INSET INTO check_ins (event_id, student_id) " + "VALUES (?,?)";
-//			 
-//			PreparedStatement statement = connection.prepareStatement(create);  
-//			statement.setInt(1,student.getEvent_id());
-//			statement.setString(2,student.getStudent_id());
-//
-//			statement.executeUpdate();
-//			connection.close();
-//			return student;
-//
-//			
-//			
-//		}catch(SQLException e) {
-//			LOGGER.debug(e.getMessage());
-//			return null;
-//		}
-//		
-//	}
+	public static boolean createCheckin(int event_id, String student_id) {
+		//checking means putting in current event id, the student id, and the time 
+		try(Connection connection = DriverManager.getConnection(CONNECTION_STRING, "postgres", "2LearnLinux!" )){ 
+			
+			String create = "INSET INTO check_ins (event_id, student_id) " + "VALUES (?,?)";
+			 
+			PreparedStatement statement = connection.prepareStatement(create);  
+			statement.setInt(1, event_id);
+			statement.setString(2, student_id);
+
+			int updates = statement.executeUpdate();
+			connection.close();
+			return updates == 1;
+			
+
+			
+			
+		}catch(SQLException e) {
+			LOGGER.debug(e.getMessage());
+			return false;
+		}
+	}
 }
