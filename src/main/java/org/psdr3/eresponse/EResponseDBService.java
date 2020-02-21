@@ -17,7 +17,7 @@ public class EResponseDBService {
 	private static int eventNumber = 1;
 	
 	//FIX THE CONNECTION STRING SOON IT IS NOT RIGHT
-	private static final String CONNECTION_STRING = "jdbc:postgresql://localhost:5432/check_ins";
+	private static final String CONNECTION_STRING = "jdbc:postgresql://localhost:5432/e_response";
 	private static final Logger LOGGER = LoggerFactory.getLogger(EResponseDBService.class);
 	
 	
