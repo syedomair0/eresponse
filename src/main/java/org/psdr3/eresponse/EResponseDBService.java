@@ -16,14 +16,13 @@ public class EResponseDBService {
 
 	private static int eventNumber = 1;
 	
-	//FIX THE CONNECTION STRING SOON IT IS NOT RIGHT
 	private static final String CONNECTION_STRING = "jdbc:postgresql://localhost:5432/e_response";
 	private static final Logger LOGGER = LoggerFactory.getLogger(EResponseDBService.class);
 	
 	
 	
 	public static boolean createCheckin(int event_id, String student_id) {
-		//checking means putting in current event id, the student id, and the time 
+
 		try(Connection connection = DriverManager.getConnection(CONNECTION_STRING, "postgres", "2LearnLinux!" )){ 
 			
 			String create = "INSERT INTO check_ins (event_id, student_id) " + "VALUES (?,?)";
